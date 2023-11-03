@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://accounts.google.com/gsi/client"></script>
+	<script src="https://accounts.google.com/gsi/client" async></script>
+	<script src="https://apis.google.com/js/platform.js" async></script>
+	<script>
+		function login(){
+			alert(1);
+		}
+	</script>
 </head>
 <body>
 <div>
@@ -23,12 +29,5 @@
      data-size="large"
      data-logo_alignment="left">
 </div>
-<footer>
-	<script>
-		function login(){
-			alert(1);
-		}
-	</script>
-</footer>
 </body>
 </html>
