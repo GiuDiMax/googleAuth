@@ -22,12 +22,18 @@
 			console.log(response);
 			const responsePayload = decodeJwtResponse(response.credential);
 			console.log(responsePayload);
-			console.log("ID: " + responsePayload.sub);
-			console.log('Full Name: ' + responsePayload.name);
-			console.log('Given Name: ' + responsePayload.given_name);
-			console.log('Family Name: ' + responsePayload.family_name);
-			console.log("Image URL: " + responsePayload.picture);
-			console.log("Email: " + responsePayload.email);
+			var string = "";
+			string = string + "ID: " + responsePayload.sub + "\n";
+			string = string + 'Full Name: ' + responsePayload.name + "\n";
+			string = string + 'Given Name: ' + responsePayload.given_name+ "\n";
+			string = string + 'Family Name: ' + responsePayload.family_name + "\n";
+			string = string + "Image URL: " + responsePayload.picture + "\n";
+			string = string + "Email: " + responsePayload.email + "\n";
+			string = string + "Email verified: " + responsePayload.email_verified + "\n";
+			
+			const div = document.querySelector("#cred");
+			div.innerHTML = "";
+			div.appendChild(document.createTextNode(string));
 		}
 	</script>
 </head>
@@ -51,5 +57,9 @@
      data-size="large"
      data-logo_alignment="left">
 </div>
+
+<div id="cred">
+</div>
+
 </body>
 </html>
