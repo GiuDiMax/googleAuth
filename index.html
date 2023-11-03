@@ -4,10 +4,16 @@
 	<script src="https://accounts.google.com/gsi/client" async></script>
 	<script src="https://apis.google.com/js/platform.js" async></script>
 	<script>
-		function loginGoogle(googleUser){
-			console.log(1);
-			console.log(googleUser);
-			alert(1);
+		function loginGoogle(response){
+			console.log(response);
+			const responsePayload = decodeJwtResponse(response.credential);
+			console.log(responsePayload);
+			console.log("ID: " + responsePayload.sub);
+			console.log('Full Name: ' + responsePayload.name);
+			console.log('Given Name: ' + responsePayload.given_name);
+			console.log('Family Name: ' + responsePayload.family_name);
+			console.log("Image URL: " + responsePayload.picture);
+			console.log("Email: " + responsePayload.email);
 		}
 	</script>
 </head>
