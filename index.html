@@ -4,7 +4,9 @@
 	<script src="https://accounts.google.com/gsi/client" async></script>
 	<script src="https://apis.google.com/js/platform.js" async></script>
 	<script>
-		function login(){
+		function loginGoogle(googleUser){
+			console.log(1);
+			console.log(googleUser);
 			alert(1);
 		}
 	</script>
@@ -14,11 +16,11 @@
 <h2>TEST GOOGLE LOGIN</h2>
 </div>
 <div id="g_id_onload"
-     data-client_id="https://giudimax.github.io/googleAuth/"
+     data-client_id="538855412732-ihh9s4gmfmj37olmvohkbk7bfp00cane.apps.googleusercontent.com"
      data-context="signin"
      data-ux_mode="popup"
-     data-callback="login"
-     data-auto_prompt="false">
+     data-callback="loginGoogle"
+     data-itp_support="true">
 </div>
 
 <div class="g_id_signin"
