@@ -17,13 +17,32 @@
 			);
 			return JSON.parse(jsonPayload);
 		}
+
+		function check(token){
+			const url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token="
+			fetch(url + token)
+			    .then(response => {
+			        if (!response.ok) {
+			            throw new Error('Network response was not ok ' + response.statusText);
+			        }
+			        return response.json();
+			    })
+			    .then(data => {
+			        console.log(data);
+			    })
+			    .catch(error => {
+			        console.error('There has been a problem with your fetch operation:', error);
+			    });
+		}
 		
 		function loginGoogle(response){
-			console.log(response);
-			const responsePayload = decodeJwtResponse(response.credential.split(".")[1]);
-			const responseHeader = decodeJwtResponse(response.credential.split(".")[0]);
+			//console.log(response);
+			//const responsePayload = decodeJwtResponse(response.credential.split(".")[1]);
+			//const responseHeader = decodeJwtResponse(response.credential.split(".")[0]);
+			//console.log(responsePayload);
+			//console.log(responseHeader);
+			const responsePayload = check(response.credential);
 			console.log(responsePayload);
-			console.log(responseHeader);
 			var string = "";
 			string = string + "ID: " + responsePayload.sub + "\n";
 			string = string + 'Full Name: ' + responsePayload.name + "\n";
