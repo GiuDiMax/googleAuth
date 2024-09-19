@@ -25,7 +25,7 @@
 			        if (!response.ok) {
 			            throw new Error('Network response was not ok ' + response.statusText);
 			        }
-			        return response.json();
+			        console.log(response.json()(;
 			    })
 			    .then(data => {
 			        console.log(data);
@@ -41,9 +41,8 @@
 			//console.log(responsePayload);
 			//console.log(responseHeader);
 			const responsePayload = decodeJwtResponse(response.credential.split(".")[1]);
-			const responsePayload2 = await check(response.credential);
+			check(response.credential);
 			console.log(responsePayload);
-			console.log(responsePayload2);
 			var string = "";
 			string = string + "ID: " + responsePayload.sub + "\n";
 			string = string + 'Full Name: ' + responsePayload.name + "\n";
