@@ -37,12 +37,13 @@
 		
 		function loginGoogle(response){
 			//console.log(response);
-			//const responsePayload = decodeJwtResponse(response.credential.split(".")[1]);
 			//const responseHeader = decodeJwtResponse(response.credential.split(".")[0]);
 			//console.log(responsePayload);
 			//console.log(responseHeader);
-			const responsePayload = await check(response.credential);
+			const responsePayload = decodeJwtResponse(response.credential.split(".")[1]);
+			const responsePayload2 = await check(response.credential);
 			console.log(responsePayload);
+			console.log(responsePayload2);
 			var string = "";
 			string = string + "ID: " + responsePayload.sub + "\n";
 			string = string + 'Full Name: ' + responsePayload.name + "\n";
