@@ -18,7 +18,7 @@
 			return JSON.parse(jsonPayload);
 		}
 
-		function check(token){
+		function async check(token){
 			const url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token="
 			fetch(url + token)
 			    .then(response => {
@@ -41,7 +41,7 @@
 			//const responseHeader = decodeJwtResponse(response.credential.split(".")[0]);
 			//console.log(responsePayload);
 			//console.log(responseHeader);
-			const responsePayload = check(response.credential);
+			const responsePayload = await check(response.credential);
 			console.log(responsePayload);
 			var string = "";
 			string = string + "ID: " + responsePayload.sub + "\n";
