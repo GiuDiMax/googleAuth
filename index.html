@@ -41,14 +41,14 @@
 			check(response.credential);
 			console.log(responsePayload);
 			var string = "";
-			string = string + "ID: " + responsePayload.sub + "\n";
-			string = string + 'Full Name: ' + responsePayload.name + "\n";
-			string = string + 'Given Name: ' + responsePayload.given_name+ "\n";
-			string = string + 'Family Name: ' + responsePayload.family_name + "\n";
-			string = string + "Image URL: " + responsePayload.picture + "\n";
-			string = string + "Email: " + responsePayload.email + "\n";
-			string = string + "Email verified: " + responsePayload.email_verified + "\n";
-			string = string + "TOKEN: " + response.credential + "\n";
+			string = string + "ID: " + responsePayload.sub + "</br>";
+			string = string + 'Full Name: ' + responsePayload.name + "</br>";
+			string = string + 'Given Name: ' + responsePayload.given_name+ "</br>";
+			string = string + 'Family Name: ' + responsePayload.family_name + "</br>";
+			string = string + "Image URL: " + responsePayload.picture + "</br>";
+			string = string + "Email: " + responsePayload.email + "</br>";
+			string = string + "Email verified: " + responsePayload.email_verified + "</br>";
+			string = string + "TOKEN: " + response.credential + "</br>";
 			
 			const div = document.querySelector("#cred");
 			div.innerHTML = "";
