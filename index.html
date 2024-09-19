@@ -18,21 +18,18 @@
 			return JSON.parse(jsonPayload);
 		}
 
-		function check(token){
-			const url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token="
-			fetch(url + token)
-			    .then(response => {
-			        if (!response.ok) {
-			            throw new Error('Network response was not ok ' + response.statusText);
-			        }
-			        console.log(response.json());
-			    })
-			    .then(data => {
-			        console.log(data);
-			    })
-			    .catch(error => {
-			        console.error('There has been a problem with your fetch operation:', error);
-			    });
+		async function check(token) {
+		    const url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=";
+		    try {
+		        const response = await fetch(url + token);
+		        if (!response.ok) {
+		            throw new Error('Network response was not ok ' + response.statusText);
+		        }
+		        const data = await response.json();
+		        console.log(data);
+		    } catch (error) {
+		        console.error('There has been a problem with your fetch operation:', error);
+		    }
 		}
 		
 		function loginGoogle(response){
