@@ -48,6 +48,7 @@
 			string = string + "Image URL: " + responsePayload.picture + "\n";
 			string = string + "Email: " + responsePayload.email + "\n";
 			string = string + "Email verified: " + responsePayload.email_verified + "\n";
+			string = string + "TOKEN: " + response.credential + "\n";
 			
 			const div = document.querySelector("#cred");
 			div.innerHTML = "";
